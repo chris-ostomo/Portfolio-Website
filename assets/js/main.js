@@ -36,11 +36,19 @@ const skillsContent = document.getElementsByClassName('skills__content'),
 function toggleSkills(){
     let itemClass = this.parentNode.className
 
+    /*
     for(i = 0; i < skillsContent.length; i++){
         skillsContent[i].className = 'skills__content skills__close'
     }
     if(itemClass === 'skills__content skills__close'){
         this.parentNode.className = 'skills__content skills__open'
+    }*/
+
+    // Only toggle the clicked item, no need to close all others
+    if (itemClass === 'skills__content skills__close') {
+        this.parentNode.className = 'skills__content skills__open';
+    } else {
+        this.parentNode.className = 'skills__content skills__close';
     }
 }
 
@@ -71,7 +79,7 @@ tabs.forEach(tab => {
 
 
 /*==================== PORTFOLIO SWIPER  ====================*/
-let swiper = new Swiper('.portoflio__container', {
+let swiper = new Swiper('.portfolio__container', {
     cssMode: true,
     loop: true,
 
@@ -92,7 +100,7 @@ let swiper = new Swiper('.portoflio__container', {
 const sections = document.querySelectorAll('section[id]')
 
 function scrollActive(){
-    const scrollY = window.pageYOffset
+    const scrollY = window.scrollY
 
     sections.forEach(current =>{
         const sectionHeight = current.offsetHeight
