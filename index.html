@@ -626,28 +626,31 @@
                         </div>
                     </div>
 
-                    <form action="" class="contact__form grid">
+                    <form action="https://api.web3forms.com/submit" method="POST" class="contact__form grid">
 
+                        <input type="hidden" name="access_key" value="5e18178f-b11d-4d1a-9186-16b5ffd24cd4">
+
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
                         <div class="contact__content">
-                            <label for="" class="contact__label">Name</label>
-                            <input type="text" class="contact__input">
+                            <label for="name" class="contact__label">Name</label>
+                            <input type="text" name="name" class="contact__input" required>
                         </div>
 
                         <div class="contact__content">
-                            <label for="" class="contact__label">Email</label>
-                            <input type="email" class="contact__input">
+                            <label for="email" class="contact__label">Email</label>
+                            <input type="email" name="email" class="contact__input" required>
                         </div>
 
 
 
                         <div class="contact__content">
-                            <label for="" class="contact__label">Message</label>
-                            <textarea name="" id="" cols="0" rows="7" class="contact__input"></textarea>
+                            <label for="message" class="contact__label">Message</label>
+                            <textarea name="message" id="" cols="0" rows="7" class="contact__input" required></textarea>
                         </div>
 
                         <div>
-                            <a href="#" class="button button--flex">
+                            <a href="#contact" class="button button--flex" onclick="if (this.closest('form').checkValidity()) { this.closest('form').submit(); } else { alert('Please fill out all required fields!'); }">
                                 Send Message
                                 <i class="uil uil-message button__icon"></i>
                             </a>
